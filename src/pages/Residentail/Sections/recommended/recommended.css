@@ -11,9 +11,14 @@ h2.section-title {
 }
 .property-card,
 .project-card {
-  box-shadow: var(--shadowcard);
+  box-shadow: var(--secshadowcard);
   border-radius: 10px;
   cursor: pointer;
+}
+.cards-grid a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
 
 .property-image,

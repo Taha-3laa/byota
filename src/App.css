@@ -24,6 +24,7 @@ html {
   --secpadding: 88px;
   --textmuted: #9d9d9d;
   --shadowcard: 0px 4px 8px 0px #00000008;
+  --secshadowcard: 4px 4px 40px 0px rgba(0, 0, 0, 0.1);
   --borderradius: 5px;
   --secbgcolor: white;
   --secgap: 18px;
@@ -82,14 +83,15 @@ body {
     scroll-snap-type: x mandatory;
     padding: 10px 0px;
   }
-  .cards-grid > article {
+  .cards-grid > a {
     flex: 0 0 60%;
     scroll-snap-align: start;
   }
 }
 
 @media (max-width: 460px) {
-  .cards-grid > article {
+  .cards-grid > a {
     flex: 0 0 85%;
   }
 }
+

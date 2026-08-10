@@ -73,7 +73,6 @@
 .resdential-hero .search-form {
   width: 100%;
   max-width: 930px;
-  height: 64px;
   position: relative;
   border-radius: var(--borderradius);
   background-color: white;
@@ -120,11 +119,11 @@
 .select-box {
   position: relative;
   background-color: inherit;
-  font-size: 12px;
   font-weight: 500;
   cursor: pointer;
   text-transform: capitalize;
   width: 22%;
+  font-size: 12px;
 }
 
 .select-box::after {
@@ -139,17 +138,18 @@
 }
 
 .search-form .select-box button {
+  cursor: inherit;
   color: #393636;
   width: 100%;
   padding: 22px;
   border: none;
   outline: none;
-  position: inherit;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: inherit;
   text-transform: inherit;
+  font-size: 12px;
 }
 
 .select-box .select-options {
@@ -208,6 +208,7 @@
   border: 1px solid #f9f9f9;
   outline: none;
   font-weight: 400;
+  font-size: 12px;
 }
 
 .location-field input:not(:placeholder-shown) + .icon {
@@ -215,6 +216,7 @@
 }
 
 .search-form .find-btn {
+  font-size: 12px;
   font-weight: 600;
   flex-grow: 1;
   padding: 18px;
