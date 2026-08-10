@@ -19,8 +19,9 @@ footer .footer-bg {
 
 footer .copyright {
   position: absolute;
-  top: 90%;
+  top: 100%;
   font-weight: 300;
+  font-size: 14px;
 }
 
 .footer-top {
@@ -74,10 +75,8 @@ footer a {
   }
   footer .copyright {
     position: static;
-    margin-top: 40px;
     margin: 40px auto 0px;
     width: fit-content;
-    font-size: 14px;
     text-align: center;
   }
   footer .logo {
