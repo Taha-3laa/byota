@@ -1,0 +1,25 @@
+section.neighborhoods,
+section.searches {
+  padding: 56px 0;
+}
+section.searches {
+  display: none;
+  background-color: #fafafa;
+}
+
+.searches a {
+  color: black;
+  font-size: 12px;
+}
+
+.links-column h3 {
+  margin-bottom: 24px;
+}
+.links-column li:not(:last-child) {
+  margin-bottom: 10px;
+}
+@media (min-width: 768px) {
+  section.searches {
+    display: block;
+  }
+}

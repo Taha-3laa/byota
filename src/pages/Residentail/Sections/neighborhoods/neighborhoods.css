@@ -1,0 +1,24 @@
+.neighborhood-card {
+  position: relative;
+  cursor: pointer;
+}
+
+.neighborhood-card .card-content {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  color: white;
+  transform: translateY(-50%);
+}
+
+.neighborhood-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+.neighborhood-card h3 + span {
+  font-size: 12px;
+  font-weight: 400;
+}
+

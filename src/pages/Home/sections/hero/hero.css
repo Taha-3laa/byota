@@ -1,0 +1,48 @@
+.hero {
+  height: calc(100vh - 88px);
+  background-image: url("../../../../assets/imgs/HomePage/landing1.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.container {
+  position: relative;
+  height: 100%;
+}
+
+.hero .slider-dots {
+  flex-direction: column;
+  position: absolute;
+  top: 120px;
+  right: 40px;
+}
+.slider-dots li {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: 0.3s background-color;
+}
+.slider-dots li.active,
+.slider-dots li:hover {
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+}
+.logo-card {
+  position: absolute;
+  width: 360px;
+  right: 15px;
+  top: 40%;
+  background-color: var(--maincolor);
+  padding: 56px;
+}
+
+@media (max-width: 1200px) {
+  .hero .logo-card,
+  .hero .slider-dots {
+    display: none;
+  }
+}

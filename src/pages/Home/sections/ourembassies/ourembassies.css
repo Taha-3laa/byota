@@ -1,0 +1,108 @@
+.ourembassies .container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 60px;
+  padding-bottom: 88px;
+}
+
+.ourembassies article {
+  min-width: 620px;
+  position: relative;
+  top: -23%;
+  left: 0;
+  padding: 50px;
+  background-color: white;
+  box-shadow: var(--shadowcard);
+}
+
+.ourembassies .img {
+  display: none;
+  min-width: 410px;
+  position: relative;
+  align-self: flex-end;
+}
+.ourembassies .section-title {
+  font-size: 28px;
+}
+.ourembassies article p {
+  font-size: 18px;
+  line-height: 44px;
+  margin-bottom: 52px;
+  margin-top: 40px;
+}
+
+a.readmore {
+  text-decoration: none;
+  font-size: 24px;
+  text-transform: capitalize;
+  font-weight: 600;
+  position: relative;
+  color: var(--maincolor);
+}
+a.readmore::after {
+  position: absolute;
+  content: "\f061";
+  font-family: "Font Awesome 7 Free";
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--maincolor);
+  font-size: inherit;
+  font-weight: 900;
+  transition: 0.3s right;
+}
+
+a.readmore:hover::after {
+  right: -30px;
+}
+@media (min-width: 992px) {
+  .ourembassies {
+    height: 60vh;
+  }
+}
+
+@media (max-width: 992px) {
+  .ourembassies .container {
+    padding-bottom: 0;
+  }
+  .ourembassies article {
+    min-width: 0;
+    width: 100%;
+    box-shadow: none;
+    padding: 15px;
+  }
+  .sec-heading {
+    font-size: 24px;
+  }
+  .sec-heading + p {
+    font-size: 16px;
+    line-height: 35px;
+  }
+}
+@media (max-width: 668px) {
+  .sec-heading + p {
+    font-size: 16px;
+    line-height: 35px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .ourembassies {
+    height: 100vh;
+  }
+  .ourembassies .img {
+    display: block;
+  }
+}
+
+@media (max-width: 440px) {
+  .ourembassies {
+    height: auto;
+  }
+  .ourembassies .container {
+    padding: 15px;
+    align-items: flex-start;
+  }
+}

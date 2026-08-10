@@ -1,0 +1,127 @@
+.location-section {
+  position: relative;
+  width: 100%;
+}
+
+.location-title {
+  position: absolute;
+  top: 25px;
+  left: 30px;
+  z-index: 1000;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+}
+
+.property-map {
+  width: 100%;
+  height: 500px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.property-marker-wrapper {
+  background: transparent !important;
+  border: none !important;
+}
+
+.property-marker {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marker-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 157, 255, 0.12);
+}
+
+.marker-circle-large {
+  width: 140px;
+  height: 140px;
+}
+
+.marker-circle-small {
+  width: 75px;
+  height: 75px;
+  background: rgba(0, 157, 255, 0.18);
+}
+
+.marker-dot {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: #009df5;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+}
+
+.leaflet-popup-content-wrapper {
+  padding: 0 !important;
+  border-radius: 10px !important;
+  background: white;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+}
+
+.leaflet-popup-tip-container,
+.leaflet-popup-tip {
+  display: none !important;
+}
+
+.location-popup {
+  position: relative;
+  width: 315px;
+  padding: 15px 20px;
+  font-size: 15px;
+  line-height: 1.35;
+  color: #222;
+}
+
+.location-popup::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.return-property-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: white;
+  color: #222;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  transition: 0.2s;
+}
+
+.return-property-btn:hover {
+  transform: translateY(-2px);
+}
+
+.return-property-btn i {
+  color: #009df5;
+}

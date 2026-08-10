@@ -1,0 +1,129 @@
+header {
+  height: 88px;
+  background-color: white;
+}
+
+header .logo {
+  display: block;
+  height: 36px;
+}
+
+header .container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+header a {
+  color: black;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  word-spacing: 2px;
+  transition: 0.3s color;
+}
+header a:hover {
+  color: var(--maincolor);
+}
+
+.toggle-menu {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  display: none;
+  cursor: pointer;
+}
+
+.toggle-menu i {
+  font-size: 32px;
+  color: var(--maincolor);
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding: 10px;
+}
+header nav .links {
+  padding: inherit;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+
+header a.login-btn {
+  height: 40px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--maincolor);
+  border-radius: var(--borderradius);
+  color: white;
+  text-transform: uppercase;
+  font-size: 12px;
+  transition: 0.3s transform;
+}
+header a.login-btn:hover {
+  transform: scale(0.98);
+}
+
+@media (max-width: 992px) {
+  header nav {
+    gap: 10px;
+  }
+  header nav a {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .toggle-menu {
+    display: block;
+  }
+
+  header nav {
+    width: 100%;
+    padding: 25px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--secgap);
+    background: #fff;
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: .5s transform,.5s opacity,.5s visibility;
+  }
+  header nav .links {
+    width: 100%;
+    gap: 20px;
+    padding: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  header nav.open {
+    transform: translateY(-2px);
+    opacity: 1;
+    visibility: visible;
+  }
+  nav.open .links a {
+    transition: 0.3s padding-left;
+  }
+  nav.open .links a:hover {
+    padding-left: 10px;
+  }
+  header a.login-btn {
+    width: 70%;
+  }
+}

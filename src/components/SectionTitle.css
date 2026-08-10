@@ -1,0 +1,24 @@
+.section-title {
+  font-weight: 700;
+  font-size: 32px;
+  margin-bottom: 40px;
+  position: relative;
+  width: fit-content;
+  text-transform: capitalize;
+  cursor: default;
+}
+
+.section-title::before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 4px;
+  background-color: var(--maincolor);
+  left: -2px;
+  bottom: -24px;
+  transition: width 0.8s ease;
+}
+
+.section-title.show::before {
+  width: 30%;
+}

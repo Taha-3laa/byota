@@ -1,0 +1,179 @@
+.recommended {
+  margin-top: 56px;
+}
+.sectionone {
+  margin-bottom: 56px;
+}
+h2.section-title {
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: 600;
+}
+.property-card,
+.project-card {
+  box-shadow: var(--shadowcard);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.property-image,
+.project-image {
+  position: relative;
+}
+
+.property-image > img,
+.project-image > img {
+  border-radius: 10px;
+}
+
+span.featured-badge {
+  position: absolute;
+  color: black;
+  background-color: white;
+  border-radius: var(--borderradius);
+  padding: 5px;
+  left: 12px;
+  top: 12px;
+  font-size: 8px;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.property-actions,
+.project-actions {
+  display: flex;
+  width: fit-content;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  gap: 5px;
+}
+
+.property-actions button,
+.project-actions button {
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition:
+    0.3s color,
+    0.3s transform;
+  color: #393636;
+}
+button.active svg path {
+  fill: var(--maincolor);
+}
+
+.property-actions button:hover,
+.project-actions button:hover {
+  transform: scale(0.95);
+  color: var(--maincolor);
+}
+
+.property-body,
+.project-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  padding-top: 10px;
+}
+
+.property-category {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  font-size: 8px;
+  text-transform: uppercase;
+  padding: 5px 0;
+}
+.property-category::after {
+  position: absolute;
+  content: "";
+  width: 90%;
+  height: 1px;
+  bottom: 0;
+  left: 10px;
+  background-color: #e5e5e5;
+}
+h3.property-price {
+  font-weight: 700;
+  font-size: 16px;
+}
+h3.property-price span {
+  font-weight: 400;
+  font-size: 8px;
+}
+h4.property-title,
+.project-title {
+  font-size: 10px;
+  font-weight: 400;
+  color: #393636;
+}
+.property-features {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: 500;
+}
+.property-features::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 1px;
+  bottom: -5px;
+  left: 0;
+  background-color: #e5e5e5;
+}
+.feature {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.project-footer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.project-footer::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  left: 0;
+  bottom: calc(100% + 10px);
+  background-color: #e5e5e5;
+}
+.project-title {
+  margin-bottom: 16px;
+}
+.project-footer .developer-logo {
+  max-width: 48px;
+}
+.project-footer .price h3 {
+  font-size: 16px;
+  font-weight: 700;
+}
+.project-footer .price h3 span {
+  margin-left: 5px;
+}
+.project-footer .price span {
+  font-size: 10px;
+  font-weight: 400;
+  color: #393636;
+}
+
+p.property-location,
+p.project-location {
+  font-size: 10px;
+  font-weight: 400;
+  margin-top: 16px;
+}

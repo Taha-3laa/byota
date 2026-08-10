@@ -1,0 +1,282 @@
+.resdential-hero {
+  height: 520px;
+  background-image: url(../../../../assets/imgs/residential/bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+
+.resdential-hero .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 60px;
+}
+
+.resdential-hero h1 {
+  color: white;
+  text-transform: uppercase;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.resdential-hero .property-card {
+  position: absolute;
+  width: 207px;
+  height: 71px;
+  right: 15px;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  background-color: #eee;
+  padding: 16px;
+  border-radius: var(--borderradius);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resdential-hero .property-card::before {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 20px;
+  left: 50%;
+  top: 100%;
+  background-color: inherit;
+  transform: translate(-50%, -65%) rotate(45deg);
+}
+
+.property-card .logo {
+  width: 40px;
+  height: 40px;
+}
+
+.property-card p.location {
+  font-size: 10px;
+  margin-bottom: 10px;
+}
+
+.property-card h3.price {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.property-card h3 span {
+  font-weight: 400;
+  font-size: 10px;
+  margin-left: 3px;
+}
+
+.resdential-hero .search-form {
+  width: 100%;
+  max-width: 930px;
+  height: 64px;
+  position: relative;
+  border-radius: var(--borderradius);
+  background-color: white;
+  box-shadow: inset 0px 2px 3px 0px #d4d4d4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  gap: 5px;
+}
+
+.search-form .tabs {
+  display: flex;
+  background-color: white;
+  border-radius: var(--borderradius);
+  margin-bottom: 30px;
+  width: fit-content;
+  position: absolute;
+  bottom: 100%;
+}
+
+.search-form .tabs label {
+  padding: 10px 20px;
+  border-radius: var(--borderradius);
+  color: #636363;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    0.3s color,
+    0.3s background-color;
+  background-color: transparent;
+}
+.search-form .tabs input:checked + label {
+  color: white;
+  background-color: var(--maincolor);
+  font-weight: 600;
+}
+.tab:last-child {
+  margin-left: -5px;
+}
+
+.select-box {
+  position: relative;
+  background-color: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  text-transform: capitalize;
+  width: 22%;
+}
+
+.select-box::after {
+  position: absolute;
+  content: "";
+  height: 75%;
+  width: 1px;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #e5e5e5;
+}
+
+.search-form .select-box button {
+  color: #393636;
+  width: 100%;
+  padding: 22px;
+  border: none;
+  outline: none;
+  position: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: inherit;
+  text-transform: inherit;
+}
+
+.select-box .select-options {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  z-index: 10;
+  padding: 0px 22px 18px 22px;
+  background-color: inherit;
+  cursor: inherit;
+  color: #393636;
+  border-radius: var(--borderradius);
+}
+
+.select-box .select-options li {
+  transition:
+    0.3s padding-left,
+    0.3s color;
+}
+
+.select-box .select-options li:hover {
+  padding-left: 5px;
+  color: var(--maincolor);
+}
+
+.select-box .select-options li:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.location-field {
+  position: relative;
+  flex-grow: 1;
+}
+
+.location-field .icon {
+  position: absolute;
+  content: "\f3c5";
+  font-family: "Font Awesome 7 Free";
+  font-weight: 900;
+  top: 48%;
+  left: 2%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: rgba(157, 157, 157, 1);
+  pointer-events: none;
+  cursor: inherit;
+}
+
+.location-field input {
+  text-indent: 16px;
+  width: 100%;
+  background-color: #f9f9f9;
+  padding: 18px;
+  border-radius: var(--borderradius);
+  border: 1px solid #f9f9f9;
+  outline: none;
+  font-weight: 400;
+}
+
+.location-field input:not(:placeholder-shown) + .icon {
+  display: none;
+}
+
+.search-form .find-btn {
+  font-weight: 600;
+  flex-grow: 1;
+  padding: 18px;
+  text-align: center;
+  border: none;
+  background-color: var(--maincolor);
+  color: white;
+  text-transform: uppercase;
+  border-radius: var(--borderradius);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .resdential-hero .property-card,
+  .select-box:last-of-type::after {
+    display: none;
+  }
+}
+
+@media (max-width: 668px) {
+  .select-box.second-select::after {
+    display: none;
+  }
+  .resdential-hero .search-form {
+    flex-wrap: wrap;
+    gap: 5px;
+    height: auto;
+  }
+  .resdential-hero .search-form > *:not(:first-child) {
+    flex-grow: 0;
+    width: 49%;
+  }
+}
+
+@media (max-width: 460px) {
+  .resdential-hero h1 {
+    display: none;
+  }
+  form.search-form {
+    flex-direction: column;
+    gap: 3px;
+  }
+  .resdential-hero .search-form > *:not(:first-child) {
+    width: 100%;
+    border-bottom: 1px solid #0000000d;
+  }
+  .search-form button,
+  .search-form input {
+    padding: 20px 10px;
+  }
+
+  .select-box::after {
+    display: none;
+  }
+  .search-form .tabs {
+    left: 0;
+    margin-bottom: 15px;
+  }
+  .select-box .select-options {
+    padding: 0px 10px 10px;
+  }
+  .search-form .tabs label {
+    padding: 15px;
+  }
+}
