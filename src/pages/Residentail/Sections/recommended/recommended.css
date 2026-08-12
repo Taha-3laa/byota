@@ -4,16 +4,28 @@
 .sectionone {
   margin-bottom: 56px;
 }
-h2.section-title {
+.recommended .section-title {
   margin-bottom: 24px;
   font-size: 24px;
   font-weight: 600;
 }
+
 .property-card,
 .project-card {
   box-shadow: var(--secshadowcard);
   border-radius: 10px;
   cursor: pointer;
+}
+@media (max-width: 668px) {
+  .recommended .section-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .property-card,
+  .project-card {
+    box-shadow: none;
+    border: 1px solid #0000001a;
+  }
 }
 .cards-grid a {
   display: block;
@@ -29,6 +41,8 @@ h2.section-title {
 .property-image > img,
 .project-image > img {
   border-radius: 10px;
+  opacity: 0;
+  transition: 0.3s opacity ease;
 }
 
 span.featured-badge {

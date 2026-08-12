@@ -1,5 +1,6 @@
 import { useState } from "react";
 import agentlogo from "../../../../assets/imgs/agentlogos/logo.png";
+import herobg from "../../../../assets/imgs/residential/bg.png";
 import "./hero.css";
 
 function PropertyCard({ location, price, currency, logo, logoAlt }) {
@@ -54,8 +55,18 @@ function SelectBox({ name, options, defaultValue, className = "" }) {
 }
 
 export default function Hero() {
+  const [isBgLoaded, setIsBgLoaded] = useState(false);
+
   return (
     <section className="resdential-hero">
+      {!isBgLoaded && <div className="hero-skeleton"></div>}
+      <img
+        className={`herobg ${isBgLoaded ? "loaded" : ""}`}
+        fetchPriority="high"
+        onLoad={() => setIsBgLoaded(true)}
+        src={herobg}
+        alt="herobackground"
+      />
       <PropertyCard
         location="Cairo, Mostakbal City"
         price="3,150,000"
@@ -106,7 +117,7 @@ export default function Hero() {
           <SelectBox
             name="property-type"
             defaultValue="apartment"
-            options={["apartment", "villa","townhouse"]}
+            options={["apartment", "villa", "townhouse"]}
             className="second-select"
           />
 

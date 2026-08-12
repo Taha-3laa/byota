@@ -1,13 +1,11 @@
 .hero {
   height: calc(100vh - 88px);
-  background-image: url("../../../../assets/imgs/HomePage/landing1.png");
-  background-size: cover;
-  background-position: center;
   position: relative;
 }
 
 .container {
   position: relative;
+  z-index: 2;
   height: 100%;
 }
 

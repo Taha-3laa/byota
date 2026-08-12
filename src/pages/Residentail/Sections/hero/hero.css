@@ -1,13 +1,11 @@
 .resdential-hero {
   height: 520px;
-  background-image: url(../../../../assets/imgs/residential/bg.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   position: relative;
 }
 
 .resdential-hero .container {
+  position: relative;
+  z-index: 2;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -24,6 +22,7 @@
 
 .resdential-hero .property-card {
   position: absolute;
+  z-index: 2;
   width: 207px;
   height: 71px;
   right: 15px;

@@ -2,14 +2,27 @@ import { useState } from "react";
 import { HeartIcon } from "./PropertyCard";
 import { LikeIcon } from "./PropertyCard";
 
-export default function ProjectCard({ image, location, title, price, developerLogo }) {
+export default function ProjectCard({
+  image,
+  location,
+  title,
+  price,
+  developerLogo,
+}) {
   const [liked, setLiked] = useState(false);
   const [favorite, setFavorite] = useState(false);
-
+  const [isImgloaded, setIsImgLoaded] = useState(false);
   return (
     <article className="project-card">
       <div className="project-image">
-        <img src={image} alt={title} className="img-cover" />
+        {!isImgloaded && <div className="skeleton"></div>}
+        <img
+          onLoad={() => setIsImgLoaded(true)}
+          loading="lazy"
+          src={image}
+          alt={title}
+          className={`img-cover ${isImgloaded ? "loaded" : ""}`}
+        />
 
         <span className="featured-badge">Featured</span>
 
@@ -53,4 +66,3 @@ export default function ProjectCard({ image, location, title, price, developerLo
     </article>
   );
 }
-

@@ -100,65 +100,72 @@ export default function PropertyCard({
 }) {
   const [liked, setLiked] = useState(false);
   const [favorite, setFavorite] = useState(false);
+  const [isImgloaded, setIsImgLoaded] = useState(false);
 
   return (
-  <Link to="/property-details">
-    <article  className="property-card" >
-      <div className="property-image">
-        <img src={image} alt="Unit" className="img-cover" />
+    <Link to="/property-details">
+      <article className="property-card">
+        <div className="property-image">
+          {!isImgloaded && <div className="skeleton"></div>}
+          <img
+            onLoad={() => setIsImgLoaded(true)}
+            loading="lazy"
+            src={image}
+            alt={title}
+            className= {`img-cover ${isImgloaded? "loaded":""}`}
+          />
+          <span className="featured-badge">Featured</span>
 
-        <span className="featured-badge">Featured</span>
+          <div className="property-actions">
+            <button
+              onClick={() => setLiked(!liked)}
+              className={liked ? "active" : ""}
+            >
+              <LikeIcon />
+            </button>
 
-        <div className="property-actions">
-          <button
-            onClick={() => setLiked(!liked)}
-            className={liked ? "active" : ""}
-          >
-            <LikeIcon />
-          </button>
-
-          <button
-            onClick={() => setFavorite(!favorite)}
-            className={favorite ? "active" : ""}
-          >
-            <HeartIcon />
-          </button>
-        </div>
-      </div>
-
-      <div className="property-body">
-        <div className="property-category">
-          <span>{category}</span>
-          <span>{type}</span>
-        </div>
-
-        <h3 className="property-price">
-          {price}
-          <span>{currency}</span>
-        </h3>
-
-        <h4 className="property-title">{title}</h4>
-
-        <div className="property-features">
-          <div className="feature">
-            <img src={bedimg} alt="Bedrooms" />
-            <span>{bedrooms}</span>
-          </div>
-
-          <div className="feature">
-            <img src={bathimg} alt="Bathrooms" />
-            <span>{bathrooms}</span>
-          </div>
-
-          <div className="feature">
-            <img src={areaimg} alt="Area" />
-            <span>{area}</span>
+            <button
+              onClick={() => setFavorite(!favorite)}
+              className={favorite ? "active" : ""}
+            >
+              <HeartIcon />
+            </button>
           </div>
         </div>
 
-        <p className="property-location">{location}</p>
-      </div>
-    </article>
+        <div className="property-body">
+          <div className="property-category">
+            <span>{category}</span>
+            <span>{type}</span>
+          </div>
+
+          <h3 className="property-price">
+            {price}
+            <span>{currency}</span>
+          </h3>
+
+          <h4 className="property-title">{title}</h4>
+
+          <div className="property-features">
+            <div className="feature">
+              <img src={bedimg} alt="Bedrooms" />
+              <span>{bedrooms}</span>
+            </div>
+
+            <div className="feature">
+              <img src={bathimg} alt="Bathrooms" />
+              <span>{bathrooms}</span>
+            </div>
+
+            <div className="feature">
+              <img src={areaimg} alt="Area" />
+              <span>{area}</span>
+            </div>
+          </div>
+
+          <p className="property-location">{location}</p>
+        </div>
+      </article>
     </Link>
   );
 }
