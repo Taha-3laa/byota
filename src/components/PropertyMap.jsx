@@ -113,12 +113,7 @@ export default function PropertyMap({
   const [showReturnButton, setShowReturnButton] = useState(false);
 
   return (
-    <section id="location" className="location-section">
-
-      <h2 className="location-title">
-        Location
-      </h2>
-
+    <div className="map">
       <MapContainer
         center={position}
         zoom={15}
@@ -126,31 +121,31 @@ export default function PropertyMap({
         zoomControl={false}
         attributionControl={false}
         className="property-map"
-      >
+        >
 
         <TileLayer
           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-        />
+          />
 
         <PropertyMarker
           position={position}
           location={location}
-        />
+          />
 
         <MapController
           position={position}
           onMoved={setShowReturnButton}
-        />
+          />
 
         {showReturnButton && (
           <ReturnToProperty
-            position={position}
-            onReturn={() => setShowReturnButton(false)}
+          position={position}
+          onReturn={() => setShowReturnButton(false)}
           />
         )}
 
       </MapContainer>
 
-    </section>
+    </div>
   );
 }

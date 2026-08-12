@@ -1,5 +1,5 @@
 main {
-  padding: 40px 0px 60px;
+  padding: 40px 0px;
   background-color: #f7f7f7;
 }
 
@@ -305,6 +305,10 @@ nav.property-tabs {
   padding: 12px;
 }
 
+.related-projects .sec-header {
+  margin-top: 20px;
+}
+
 @media (max-width: 992px) {
   .breadcrumb,
   nav.property-tabs,
@@ -344,11 +348,19 @@ nav.property-tabs {
 .property-description,
 .property-facilities,
 section.property-info,
-.map-location {
+.location-section {
   background-color: var(--secbgcolor);
   border-radius: var(--borderradius);
   box-shadow: var(--shadowcard);
   padding: var(--secpadding-sm);
+}
+.location-section {
+  height: 400px;
+  position: relative;
+}
+.location-section .sec-header {
+  position: relative;
+  z-index: 1000;
 }
 
 .property-description p {
@@ -399,7 +411,6 @@ section.property-info,
   .property-description,
   .property-facilities,
   section.property-info,
-  .map-location,
   .agent-sidebar {
     padding: 15px;
     width: 100%;
@@ -418,7 +429,3 @@ section.property-info,
   margin-right: 5px;
 }
 
-.map-location {
-  height: 400px;
-  margin-bottom: 20px;
-}

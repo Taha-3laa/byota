@@ -13,7 +13,7 @@ import {
   facilities,
   property,
   properties,
-  projects
+  projects,
 } from "../../StaticData/staticdata.js";
 import PropertyMap from "../../components/PropertyMap.jsx";
 
@@ -107,7 +107,7 @@ function AgentSidebar({ logo, name, properties, location }) {
           <label htmlFor="phone">Phone*</label>
 
           <div className="phone-input">
-            <input id="phone" type="tel" value="+2"/>
+            <input id="phone" type="tel" value="+2" />
           </div>
         </div>
 
@@ -295,11 +295,14 @@ export default function PropertyDetails() {
 
           <PropertyFacilities facilities={facilities} />
 
-          <PropertyMap
-            latitude={property.latitude}
-            longitude={property.longitude}
-            location={property.location}
-          />
+          <section id="location" className="location-section">
+            <h2 className="sec-header">Location</h2>
+            <PropertyMap
+              latitude={property.latitude}
+              longitude={property.longitude}
+              location={property.location}
+            />
+          </section>
 
           <section id="available-units" className="available-units">
             <h2 className="sec-header">Available Units</h2>
