@@ -1,15 +1,15 @@
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
-import L from "leaflet";
-import { useEffect, useRef, useState } from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { useEffect, useRef } from "react";
 import "leaflet/dist/leaflet.css";
 import "./PropertyMap.css";
+import L from "leaflet";
 
-const propertyIcon = L.divIcon({
-  className: "property-marker-wrapper",
+const markerIcon = L.divIcon({
+  className: "marker",
   html: `
-    <div class="property-marker">
-      <div class="marker-circle marker-circle-large"></div>
-      <div class="marker-circle marker-circle-small"></div>
+    <div class="marker-content">
+      <div class="outer-ring"></div>
+      <div class="inner-ring"></div>
       <div class="marker-dot"></div>
     </div>
   `,
@@ -17,135 +17,30 @@ const propertyIcon = L.divIcon({
   iconAnchor: [70, 70],
 });
 
-function PropertyMarker({ position, location }) {
-  const markerRef = useRef(null);
-  const popupRef = useRef(null);
+
+function CustomMarker({ lat, lng, location }) {
+  const markerRef = useRef();
 
   useEffect(() => {
-    if (markerRef.current) {
-      markerRef.current.openPopup();
-    }
+    markerRef.current?.openPopup();
   }, []);
-
-  const handleClick = () => {
-    if (!markerRef.current || !popupRef.current) return;
-
-    if (markerRef.current.isPopupOpen()) {
-      markerRef.current.closePopup();
-    } else {
-      markerRef.current.openPopup();
-    }
-  };
-
   return (
-    <Marker
-      ref={markerRef}
-      position={position}
-      icon={propertyIcon}
-      eventHandlers={{
-        click: handleClick,
-      }}
-    >
-      <Popup
-        ref={popupRef}
-        closeButton={false}
-        offset={[0, -65]}
-      >
-        <div className="location-popup">
-          {location}
-        </div>
+    <Marker ref={markerRef} position={[lat, lng]} icon={markerIcon}>
+      <Popup offset={[110, 10]}>
+        <p>{location}</p>
       </Popup>
     </Marker>
   );
 }
 
-function MapController({ position, onMoved }) {
-  const map = useMap();
-
-  useEffect(() => {
-    const handleMove = () => {
-      const center = map.getCenter();
-      const propertyLocation = L.latLng(position);
-      const distance = map.distance(center, propertyLocation);
-
-      onMoved(distance > 100);
-    };
-
-    map.on("moveend", handleMove);
-
-    return () => {
-      map.off("moveend", handleMove);
-    };
-  }, [map, position, onMoved]);
-
-  return null;
-}
-
-function ReturnToProperty({ position, onReturn }) {
-  const map = useMap();
-
-  const handleReturn = () => {
-    map.setView(position, 15, {
-      animate: true,
-    });
-
-    onReturn();
-  };
-
+export default function PropertyMap({ lat, lng, location }) {
   return (
-    <button
-      className="return-property-btn"
-      onClick={handleReturn}
-    >
-      <i className="fa-solid fa-location-crosshairs"></i>
-      <span>Return to property</span>
-    </button>
-  );
-}
-
-export default function PropertyMap({
-  latitude,
-  longitude,
-  location,
-}) {
-  const position = [latitude, longitude];
-
-  const [showReturnButton, setShowReturnButton] = useState(false);
-
-  return (
-    <div className="map">
-      <MapContainer
-        center={position}
-        zoom={15}
-        scrollWheelZoom={true}
-        zoomControl={false}
-        attributionControl={false}
-        className="property-map"
-        >
-
-        <TileLayer
-          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-          />
-
-        <PropertyMarker
-          position={position}
-          location={location}
-          />
-
-        <MapController
-          position={position}
-          onMoved={setShowReturnButton}
-          />
-
-        {showReturnButton && (
-          <ReturnToProperty
-          position={position}
-          onReturn={() => setShowReturnButton(false)}
-          />
-        )}
-
-      </MapContainer>
-
-    </div>
+    <MapContainer className="property-map" center={[lat, lng]} zoom={13}>
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+      />
+      <CustomMarker lat={lat} lng={lng} location={location} />
+    </MapContainer>
   );
 }

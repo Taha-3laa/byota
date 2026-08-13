@@ -5,8 +5,8 @@ import PropertyCard, {
   HeartIcon,
   ShareIcon,
   ShowImgsIcon,
-} from "../../components/PropertyCard.jsx";
-import ProjectCard from "../../components/ProjectCard.jsx";
+} from "../../components/PropertyCard";
+import ProjectCard from "../../components/ProjectCard";
 import {
   breadcrumbItems,
   tabs,
@@ -15,7 +15,7 @@ import {
   properties,
   projects,
 } from "../../StaticData/staticdata.js";
-import PropertyMap from "../../components/PropertyMap.jsx";
+import PropertyMap from "../../components/PropertyMap";
 
 import mainimg from "../../assets/imgs/gallery/main-img.png";
 import sideimg1 from "../../assets/imgs/gallery/sideimg1.png";
@@ -105,10 +105,7 @@ function AgentSidebar({ logo, name, properties, location }) {
 
         <div className="form-group">
           <label htmlFor="phone">Phone*</label>
-
-          <div className="phone-input">
-            <input id="phone" type="tel" value="+2" />
-          </div>
+          <input id="phone" type="tel" defaultValue="+2" />
         </div>
 
         <div className="form-group">
@@ -298,9 +295,9 @@ export default function PropertyDetails() {
           <section id="location" className="location-section">
             <h2 className="sec-header">Location</h2>
             <PropertyMap
-              latitude={property.latitude}
-              longitude={property.longitude}
-              location={property.location}
+            lat={property.latitude}
+            lng={property.longitude}
+            location={property.location}
             />
           </section>
 
