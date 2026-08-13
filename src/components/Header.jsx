@@ -5,6 +5,8 @@ import logo from "../assets/imgs/logos/logo.png";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const links = ["residential", "commercial", "new projects", "agents", "log in"];
+
   return (
     <>
       <header>
@@ -12,20 +14,30 @@ export default function Header() {
           <Link to="/" className="logo">
             <img src={logo} className="img-cover" alt="byotalogo" />
           </Link>
-          <nav className={isMenuOpen?"open":""}>
+          <nav className={isMenuOpen ? "open" : ""}>
             <div className="links">
-              <Link to="/residential">Residential</Link>
-              <Link to="/commercial">Commercial</Link>
-              <Link to="/newprojects">New Projects</Link>
-              <Link to="/agents">Agents</Link>
+              {links.slice(0, 4).map((l, index) => (
+                <Link
+                  key={index}
+                  to={`/${l.replace(/\s+/g, "")}`}
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                >
+                  {l}
+                </Link>
+              ))}
             </div>
-            <Link to="/login" className="login-btn">
-              log in
+            <Link
+              to={`/${links[links.length-1].replace(/\s+/g, "")}`}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="login-btn"
+            >
+              {links[links.length-1]}
             </Link>
           </nav>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="toggle-menu">
+            className="toggle-menu"
+          >
             <i
               className={isMenuOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars"}
             ></i>

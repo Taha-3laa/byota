@@ -1,6 +1,8 @@
 header {
   height: 88px;
   background-color: white;
+  position: relative;
+  z-index: 3;
 }
 
 header .logo {
@@ -98,11 +100,13 @@ header a.login-btn:hover {
     flex-direction: column;
     gap: var(--secgap);
     background: #fff;
-    z-index: 1;
     visibility: hidden;
     opacity: 0;
     transform: translateY(-10px);
-    transition: .5s transform,.5s opacity,.5s visibility;
+    transition:
+      0.5s transform,
+      0.5s opacity,
+      0.5s visibility;
   }
   header nav .links {
     width: 100%;
