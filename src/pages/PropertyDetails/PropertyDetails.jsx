@@ -245,7 +245,7 @@ function GalleryControls() {
 
 export default function PropertyDetails() {
   return (
-    <main>
+    <main className="property-main">
       <div className="container">
         <Breadcrumb items={breadcrumbItems} />
         <div className="gallery-grid">

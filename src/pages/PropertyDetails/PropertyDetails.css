@@ -1,4 +1,4 @@
-main {
+.property-main {
   padding-top: 40px;
   background-color: #f7f7f7;
 }
@@ -309,6 +309,9 @@ nav.property-tabs {
 }
 
 @media (max-width: 992px) {
+  .property-main {
+    padding-bottom: 40px;
+  }
   .breadcrumb,
   nav.property-tabs,
   .contact-form,
