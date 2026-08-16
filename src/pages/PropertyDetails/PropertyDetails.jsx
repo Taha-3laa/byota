@@ -6,14 +6,12 @@ import PropertyCard, {
   ShareIcon,
   ShowImgsIcon,
 } from "../../components/PropertyCard";
-import ProjectCard from "../../components/ProjectCard";
 import {
   breadcrumbItems,
   tabs,
   facilities,
   property,
   properties,
-  projects,
 } from "../../StaticData/staticdata.js";
 import PropertyMap from "../../components/PropertyMap";
 
@@ -49,7 +47,7 @@ function Breadcrumb({ items }) {
 
 function PropertyInfo({ price, location, title }) {
   return (
-    <section id="#details" className="property-info">
+    <section id="details" className="property-info">
       <span className="starting-label">Starting From</span>
 
       <p className="property-price">
@@ -316,8 +314,8 @@ export default function PropertyDetails() {
         <div className="container">
           <h2 className="sec-header">Related Projects</h2>
           <div className="cards-grid">
-            {projects.map((project) => {
-              return <ProjectCard key={project.id} {...project} />;
+            {properties.map((property) => {
+              return <PropertyCard key={property.id} {...property} />;
             })}
           </div>
         </div>

@@ -5,8 +5,6 @@ import logo from "../assets/imgs/logos/logo.png";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const links = ["residential", "commercial", "new projects", "agents", "log in"];
-
   return (
     <>
       <header>
@@ -16,22 +14,16 @@ export default function Header() {
           </Link>
           <nav className={isMenuOpen ? "open" : ""}>
             <div className="links">
-              {links.slice(0, 4).map((l, index) => (
-                <Link
-                  key={index}
-                  to={`/${l.replace(/\s+/g, "")}`}
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                >
-                  {l}
-                </Link>
-              ))}
+              <Link onClick={() => setIsMenuOpen(!isMenuOpen)} to="/residential" >residential</Link>
+              <Link onClick={() => setIsMenuOpen(!isMenuOpen)} to="/commercial" >commercial</Link>
+              <Link onClick={() => setIsMenuOpen(!isMenuOpen)} to="/newprojects">new projects</Link>
+              <Link onClick={() => setIsMenuOpen(!isMenuOpen)} to="/agents"> agents</Link>
             </div>
-            <Link
-              to={`/${links[links.length-1].replace(/\s+/g, "")}`}
+            <Link to="/login"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="login-btn"
             >
-              {links[links.length-1]}
+              log in
             </Link>
           </nav>
           <button
